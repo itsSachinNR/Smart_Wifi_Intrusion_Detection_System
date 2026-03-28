@@ -1,0 +1,122 @@
+[
+  {
+    "timestamp": "2026-03-28 16:10:29.463408",
+    "device_mac": "AA:BB:CC:93:26:71",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 9,
+    "signal_strength": -57
+  },
+  {
+    "timestamp": "2026-03-28 16:11:29.463408",
+    "device_mac": "AA:BB:CC:35:91:51",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 6,
+    "signal_strength": -79
+  },
+  {
+    "timestamp": "2026-03-28 16:12:29.463408",
+    "device_mac": "AA:BB:CC:78:66:26",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 7,
+    "signal_strength": -84
+  },
+  {
+    "timestamp": "2026-03-28 16:13:29.463408",
+    "device_mac": "AA:BB:CC:29:65:29",
+    "ssid": "HomeWiFi",
+    "event_type": "normal",
+    "failed_attempts": 4,
+    "signal_strength": -82
+  },
+  {
+    "timestamp": "2026-03-28 16:14:29.463408",
+    "device_mac": "AA:BB:CC:12:90:54",
+    "ssid": "HomeWiFi",
+    "event_type": "normal",
+    "failed_attempts": 6,
+    "signal_strength": -65
+  },
+  {
+    "timestamp": "2026-03-28 16:15:29.463408",
+    "device_mac": "AA:BB:CC:69:98:35",
+    "ssid": "HomeWiFi",
+    "event_type": "normal",
+    "failed_attempts": 0,
+    "signal_strength": -51
+  },
+  {
+    "timestamp": "2026-03-28 16:16:29.463408",
+    "device_mac": "AA:BB:CC:33:58:86",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 6,
+    "signal_strength": -72
+  },
+  {
+    "timestamp": "2026-03-28 16:17:29.463408",
+    "device_mac": "AA:BB:CC:31:29:23",
+    "ssid": "HomeWiFi",
+    "event_type": "normal",
+    "failed_attempts": 7,
+    "signal_strength": -79
+  },
+  {
+    "timestamp": "2026-03-28 16:18:29.463408",
+    "device_mac": "AA:BB:CC:59:44:63",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 8,
+    "signal_strength": -90
+  },
+  {
+    "timestamp": "2026-03-28 16:19:29.463408",
+    "device_mac": "AA:BB:CC:12:78:73",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 9,
+    "signal_strength": -86
+  },
+  {
+    "timestamp": "2026-03-28 16:20:29.463408",
+    "device_mac": "AA:BB:CC:10:64:83",
+    "ssid": "HomeWiFi",
+    "event_type": "normal",
+    "failed_attempts": 7,
+    "signal_strength": -82
+  },
+  {
+    "timestamp": "2026-03-28 16:21:29.463408",
+    "device_mac": "AA:BB:CC:40:81:61",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 9,
+    "signal_strength": -73
+  },
+  {
+    "timestamp": "2026-03-28 16:22:29.463408",
+    "device_mac": "AA:BB:CC:65:58:68",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 5,
+    "signal_strength": -87
+  },
+  {
+    "timestamp": "2026-03-28 16:23:29.463408",
+    "device_mac": "AA:BB:CC:54:59:31",
+    "ssid": "HomeWiFi",
+    "event_type": "auth_fail",
+    "failed_attempts": 3,
+    "signal_strength": -69
+  },
+  {
+    "timestamp": "2026-03-28 16:24:29.463408",
+    "device_mac": "AA:BB:CC:60:98:44",
+    "ssid": "HomeWiFi",
+    "event_type": "normal",
+    "failed_attempts": 6,
+    "signal_strength": -57
+  }
+]
