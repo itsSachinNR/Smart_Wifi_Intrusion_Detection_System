@@ -260,5 +260,16 @@
   "signal_strength": -92,
   "location": "unknown",
   "is_known_device": false
+},
+  {
+  "timestamp": "2026-03-28 15:55:00",
+  "device_mac": "76:88:99:AA:BB:CC",
+  "ssid": "HomeWiFi",
+  "event_type": "suspicious_login",
+  "failed_attempts": 9,
+  "signal_strength": -99,
+  "location": "unknown",
+  "is_known_device": false
 }
+
 ]
