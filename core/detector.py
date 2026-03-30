@@ -11,6 +11,19 @@ def calculate_risk(event):
 
     if event["event_type"] == "auth_fail":
         score += 20
+        
+    if event.get("event_type") == "suspicious_login":
+        score += 30
+
+    if event.get("event_type") == "new_device":
+        score += 20
+
+    if event.get("location") == "unknown":
+        score += 15
+
+    if event.get("is_known_device") == False:
+        score += 25
+
 
     return score
 
@@ -25,7 +38,8 @@ def process_events(file_path):
         score = calculate_risk(event)
         results.append({
             "device_mac": event["device_mac"],
-            "score": score
+            "score": score,
+            "event_type": event["event_type"]
         })
 
     return results
