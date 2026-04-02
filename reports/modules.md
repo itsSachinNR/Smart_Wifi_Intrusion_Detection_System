@@ -1,13 +1,13 @@
 # Modules
 
 ## main.py
-Controls the flow of the application.
+Controls the overall flow of the application and starts the detection process.
 
 ## core/
-Contains intrusion detection logic.
+Contains the main intrusion detection logic and comparison algorithms.
 
 ## scripts/
-Handles scanning and alert functions.
+Includes helper functions for scanning network devices and sending alerts.
 
 ## data/
-Stores device and log information.
+Stores device details and intrusion logs in JSON format.
