@@ -1,3 +1,5 @@
+# Day 1: Initial alerts module setup
+
 def generate_alert(score):
     if score >= 60:
         return "HIGH RISK"
