@@ -35,8 +35,10 @@ def update_summary(summary, alert):
     else:
         summary[risk] = 1
 
+ 
 
-# ✅ MOVE THIS FUNCTION ABOVE MAIN
+
+
 def generate_report(alerts, summary):
     with open("report.txt", "w") as file:
         file.write("SMART WIFI IDS REPORT\n")
@@ -62,10 +64,10 @@ def generate_report(alerts, summary):
             file.write(f"{key}: {value}\n")
 
 
-# ✅ MAIN BLOCK
+
 if __name__ == "__main__":
     summary = {}
-    alerts_list = []   # ✅ ADD THIS
+    alerts_list = []  
 
     sample_data = [
         {"device_mac": "AA", "score": 75, "reasons": ["failed attempts"]},
@@ -76,7 +78,7 @@ if __name__ == "__main__":
 
     for event in sample_data:
         alert = build_full_alert(event)
-        alerts_list.append(alert)   # now works ✅
+        alerts_list.append(alert)   
         update_summary(summary, alert)
 
     print("SUMMARY:", summary)
