@@ -38,7 +38,7 @@ def update_summary(summary, alert):
  
 
 
-
+# Day 5: generate final report output
 def generate_report(alerts, summary):
     with open("report.txt", "w") as file:
         file.write("SMART WIFI IDS REPORT\n")
