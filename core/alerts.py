@@ -1,3 +1,4 @@
+# Final version: Alerts module ready for integration and demo
 # Day 1: Initial alerts module setup
 from reports.report_generator import generate_report
 def generate_alert(score):
