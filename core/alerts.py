@@ -81,6 +81,10 @@ if __name__ == "__main__":
         alerts_list.append(alert)   
         update_summary(summary, alert)
 
-    print("SUMMARY:", summary)
+    # Day 7: final clean summary display
+print("\n===== FINAL SUMMARY =====")
+for key, value in summary.items():
+    print(f"{key}: {value}")
+print("=========================\n")
 
     generate_report(alerts_list, summary)
