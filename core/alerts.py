@@ -81,11 +81,13 @@ if __name__ == "__main__":
         {"device_mac": "CC", "score": 10, "reasons": ["normal"]},
         {"device_mac": "DD", "score": 80, "reasons": ["unknown device"]},
     ]
-
     for event in sample_data:
-        alert = build_full_alert(event)
-        alerts_list.append(alert)   
+    alert = build_full_alert(event)
+
+    if validate_alert(alert):
+        alerts_list.append(alert)
         update_summary(summary, alert)
+        print_alert(alert)
 
     # Day 7: final clean summary display
 print("\n===== FINAL SUMMARY =====")
