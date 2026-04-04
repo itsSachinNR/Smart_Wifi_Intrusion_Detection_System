@@ -63,7 +63,13 @@ def generate_report(alerts, summary):
         for key, value in summary.items():
             file.write(f"{key}: {value}\n")
 
-
+# Day 7: ensure alert structure is valid
+def validate_alert(alert):
+    return all([
+        "device_mac" in alert,
+        "risk" in alert,
+        "reasons" in alert
+    ])
 
 if __name__ == "__main__":
     summary = {}
