@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template
 from core.detector import process_events
 from core.alerts import generate_alert
