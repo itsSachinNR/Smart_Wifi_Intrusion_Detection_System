@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Results</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f2027;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #1c1c1c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px auto;
+            width: 60%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+
+        .low {
+            border-left: 6px solid green;
+        }
+
+        .medium {
+            border-left: 6px solid orange;
+        }
+
+        .high {
+            border-left: 6px solid red;
+        }
+
+        a {
+            color: #00c6ff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🔍 Detection Results</h1>
+
+    {% for item in results %}
+        <div class="card 
+            {% if item.risk == 'LOW RISK' %}low
+            {% elif item.risk == 'MEDIUM RISK' %}medium
+            {% else %}high
+            {% endif %}
+        ">
+            <p><strong>📱 Device:</strong> {{ item.device_mac }}</p>
+            <p><strong>📊 Score:</strong> {{ item.score }}</p>
+            <p><strong>⚠ Risk:</strong> {{ item.risk }}</p>
+            <p><strong>🧠 Reason:</strong> {{ item.reason }}</p>
+        </div>
+    {% endfor %}
+
+    <br>
+    <a href="/">⬅ Back to Home</a>
+
+</body>
+</html>

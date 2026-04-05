@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart WiFi IDS</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.4);
+            padding: 15px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .brand {
+            font-weight: bold;
+            color: #00c6ff;
+        }
+
+        .author {
+            font-style: italic;
+            color: #ccc;
+        }
+
+        .container {
+            margin-top: 120px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        button {
+            background: #00c6ff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            color: black;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00aaff;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="brand">📡 Smart WiFi IDS</div>
+        <div class="author">Developed by Haneefa</div> 
+    </div>
+
+    <div class="container">
+        <h1>WiFi Intrusion Detection System</h1>
+        <p>Analyze and detect suspicious network activities in real-time</p>
+
+        <form action="/analyze" method="get">
+            <button type="submit">🚀 Run Detection</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        © 2026 Smart WiFi IDS | Cybersecurity Project
+    </div>
+
+</body>
+</html>
