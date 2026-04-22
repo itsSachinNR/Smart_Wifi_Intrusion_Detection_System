@@ -2,10 +2,11 @@
 
 def generate_report(alerts, summary):
     with open("report.txt", "w") as file:
-       file.write("SMART WIFI IDS - FINAL REPORT\n")
-       file.write("Generated for Security Analysis\n")
-       file.write("================================\n\n")
+        file.write("SMART WIFI IDS - FINAL REPORT\n")
+        file.write("Generated for Security Analysis\n")
+        file.write("================================\n\n")
 
+        # Alerts Section
         file.write("ALERTS:\n")
         file.write("--------\n")
 
@@ -19,6 +20,7 @@ def generate_report(alerts, summary):
 
             file.write("\n")
 
+        # Summary Section
         file.write("SUMMARY:\n")
         file.write("--------\n")
 
