@@ -34,6 +34,15 @@ def calculate_risk(event):
     return score
 
 
+def get_risk_level(score):
+    if score >= 80:
+        return "HIGH RISK"
+    elif score >= 40:
+        return "MEDIUM RISK"
+    else:
+        return "LOW RISK"
+
+
 def process_events(file_path):
     with open(file_path, "r") as f:
         events = json.load(f)
@@ -42,10 +51,12 @@ def process_events(file_path):
 
     for event in events:
         score = calculate_risk(event)
+        risk = get_risk_level(score)
 
         results.append({
             "device_mac": event["device_mac"],
-            "score": score
+            "score": score,
+            "risk": risk
         })
 
     return results
