@@ -1,11 +1,9 @@
-
 # Final version: Alerts module ready for integration and demo
 
-# Day 1: Initial alerts module setup
 from reports.report_generator import generate_report
 
 
-# Day 2: Convert score into risk level
+# Convert score into risk level (used if needed separately)
 def generate_alert(score):
     if score >= 60:
         return "HIGH RISK"
@@ -15,7 +13,7 @@ def generate_alert(score):
         return "LOW RISK"
 
 
-# Day 3: Format alert data
+# Format alert data
 def format_alert(device_mac, score, reasons):
     risk = generate_alert(score)
     return {
@@ -25,36 +23,35 @@ def format_alert(device_mac, score, reasons):
     }
 
 
-# Day 4: Build full alert from detector output
+# Build full alert from detector output
 def build_full_alert(event_result):
-    return format_alert(
-        event_result["device_mac"],
-        event_result["score"],
-        event_result["reasons"]
-    )
+    return {
+        "device_mac": event_result.get("device_mac"),
+        "risk": event_result.get("risk"),   # use detector's risk directly ✅
+        "reasons": event_result.get("reasons", [])
+    }
 
 
-# Day 4: Update summary counts
+# Update summary counts
 def update_summary(summary, alert):
     risk = alert["risk"]
-    if risk in summary:
-        summary[risk] += 1
-    else:
-        summary[risk] = 1
+    summary[risk] = summary.get(risk, 0) + 1
 
 
-# Day 3: Print alert nicely
+# Print alert nicely (for CLI)
 def print_alert(alert):
     print("========== ALERT ==========")
     print(f"Device MAC : {alert['device_mac']}")
     print(f"Risk Level : {alert['risk']}")
     print("Reasons:")
+
     for reason in alert["reasons"]:
         print(f" - {reason}")
+
     print("===========================\n")
 
 
-# Day 7: Validate alert structure
+# Validate alert structure
 def validate_alert(alert):
     return all([
         "device_mac" in alert,
@@ -63,19 +60,12 @@ def validate_alert(alert):
     ])
 
 
-# MAIN EXECUTION
-if __name__ == "__main__":
+# Optional: Full pipeline runner (for testing/demo)
+def run_alert_pipeline(results):
     summary = {}
     alerts_list = []
 
-    sample_data = [
-        {"device_mac": "AA", "score": 75, "reasons": ["failed attempts"]},
-        {"device_mac": "BB", "score": 40, "reasons": ["weak signal"]},
-        {"device_mac": "CC", "score": 10, "reasons": ["normal"]},
-        {"device_mac": "DD", "score": 80, "reasons": ["unknown device"]},
-    ]
-
-    for event in sample_data:
+    for event in results:
         alert = build_full_alert(event)
 
         if validate_alert(alert):
@@ -83,11 +73,23 @@ if __name__ == "__main__":
             update_summary(summary, alert)
             print_alert(alert)
 
-    # Day 7: final clean summary display
+    # Print summary
     print("\n===== FINAL SUMMARY =====")
     for key, value in summary.items():
         print(f"{key}: {value}")
     print("=========================\n")
 
-    # Generate report
+    # Generate report file
     generate_report(alerts_list, summary)
+
+
+# MAIN EXECUTION (for standalone testing)
+if __name__ == "__main__":
+    sample_data = [
+        {"device_mac": "AA", "score": 75, "risk": "HIGH RISK", "reasons": ["High failed attempts"]},
+        {"device_mac": "BB", "score": 40, "risk": "MEDIUM RISK", "reasons": ["Weak signal"]},
+        {"device_mac": "CC", "score": 10, "risk": "LOW RISK", "reasons": ["Normal activity"]},
+        {"device_mac": "DD", "score": 80, "risk": "HIGH RISK", "reasons": ["Unknown device"]},
+    ]
+
+    run_alert_pipeline(sample_data)
