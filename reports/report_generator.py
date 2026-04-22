@@ -1,5 +1,3 @@
-# Day 6: final report generation module
-
 def generate_report(alerts, summary):
     with open("report.txt", "w") as file:
         file.write("SMART WIFI IDS - FINAL REPORT\n")
