@@ -1,6 +1,3 @@
-<!-- Results page showing analyzed WiFi events -->
-
-<!-- Loop through all detection results -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +6,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #0f2027;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
             color: white;
             text-align: center;
             padding: 20px;
@@ -17,28 +14,48 @@
 
         h1 {
             margin-bottom: 30px;
+            font-size: 36px;
         }
 
         .card {
             background: #1c1c1c;
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 12px;
+            padding: 18px;
             margin: 15px auto;
             width: 60%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
             text-align: left;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
         }
 
         .low {
-            border-left: 6px solid green;
+            border-left: 6px solid #2ecc71;
         }
 
         .medium {
-            border-left: 6px solid orange;
+            border-left: 6px solid #f39c12;
         }
 
         .high {
-            border-left: 6px solid red;
+            border-left: 6px solid #e74c3c;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #00c6ff;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
         }
 
         a {
@@ -49,6 +66,12 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #bbb;
         }
     </style>
 </head>
@@ -64,15 +87,27 @@
             {% else %}high
             {% endif %}
         ">
-            <p><strong>📱 Device:</strong> {{ item.device_mac }}</p>
-            <p><strong>📊 Score:</strong> {{ item.score }}</p>
-            <p><strong>⚠ Risk:</strong> {{ item.risk }}</p>
-            <p><strong>🧠 Reason:</strong> {{ item.reason }}</p>
+
+            <p><span class="label">📱 Device:</span> {{ item.device_mac }}</p>
+            <p><span class="label">📊 Score:</span> {{ item.score }}</p>
+            <p><span class="label">⚠ Risk:</span> {{ item.risk }}</p>
+
+            <p class="label">🧠 Reasons:</p>
+            <ul>
+                {% for r in item.reasons %}
+                    <li>{{ r }}</li>
+                {% endfor %}
+            </ul>
+
         </div>
     {% endfor %}
 
     <br>
     <a href="/">⬅ Back to Home</a>
+
+    <div class="footer">
+        Smart WiFi IDS | Detection Complete
+    </div>
 
 </body>
 </html>
