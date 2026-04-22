@@ -8,30 +8,54 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
             color: white;
-            text-align: center;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
         }
 
+        /* Navbar */
+        .navbar {
+            background: rgba(0,0,0,0.4);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-weight: bold;
+            color: #00c6ff;
+            font-size: 20px;
+        }
+
+        /* Title */
         h1 {
-            margin-bottom: 30px;
-            font-size: 36px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 34px;
         }
 
+        /* Container */
+        .container {
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        /* Card */
         .card {
             background: #1c1c1c;
             border-radius: 12px;
             padding: 18px;
-            margin: 15px auto;
-            width: 60%;
+            margin: 15px 0;
             box-shadow: 0 0 15px rgba(0,0,0,0.6);
             text-align: left;
             transition: 0.3s;
         }
 
         .card:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
         }
 
+        /* Risk colors */
         .low {
             border-left: 6px solid #2ecc71;
         }
@@ -49,6 +73,18 @@
             color: #00c6ff;
         }
 
+        /* Risk badge */
+        .badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .badge.low { background: #2ecc71; color: black; }
+        .badge.medium { background: #f39c12; color: black; }
+        .badge.high { background: #e74c3c; }
+
         ul {
             margin-top: 5px;
             padding-left: 20px;
@@ -58,17 +94,23 @@
             margin-bottom: 4px;
         }
 
-        a {
-            color: #00c6ff;
+        /* Button */
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #00c6ff;
+            color: black;
+            border-radius: 6px;
             text-decoration: none;
-            font-size: 18px;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .back-btn:hover {
+            background: #00aaff;
         }
 
         .footer {
+            text-align: center;
             margin-top: 30px;
             font-size: 14px;
             color: #bbb;
@@ -78,32 +120,59 @@
 
 <body>
 
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="brand">📡 Smart WiFi IDS</div>
+    </div>
+
     <h1>🔍 Detection Results</h1>
 
-    {% for item in results %}
-        <div class="card 
-            {% if item.risk == 'LOW RISK' %}low
-            {% elif item.risk == 'MEDIUM RISK' %}medium
-            {% else %}high
-            {% endif %}
-        ">
+    <div class="container">
 
-            <p><span class="label">📱 Device:</span> {{ item.device_mac }}</p>
-            <p><span class="label">📊 Score:</span> {{ item.score }}</p>
-            <p><span class="label">⚠ Risk:</span> {{ item.risk }}</p>
+        {% for item in results %}
+            <div class="card 
+                {% if item.risk == 'LOW RISK' %}low
+                {% elif item.risk == 'MEDIUM RISK' %}medium
+                {% else %}high
+                {% endif %}
+            ">
 
-            <p class="label">🧠 Reasons:</p>
-            <ul>
-                {% for r in item.reasons %}
-                    <li>{{ r }}</li>
-                {% endfor %}
-            </ul>
+                <p>
+                    <span class="label">📱 Device:</span> {{ item.device_mac }}
+                </p>
 
+                <p>
+                    <span class="label">📊 Score:</span> {{ item.score }}
+                </p>
+
+                <p>
+                    <span class="label">⚠ Risk:</span> {{ item.risk }}
+
+                    <span class="badge 
+                        {% if item.risk == 'LOW RISK' %}low
+                        {% elif item.risk == 'MEDIUM RISK' %}medium
+                        {% else %}high
+                        {% endif %}
+                    ">
+                        {{ item.risk }}
+                    </span>
+                </p>
+
+                <p class="label">🧠 Reasons:</p>
+                <ul>
+                    {% for r in item.reasons %}
+                        <li>{{ r }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        {% endfor %}
+
+        <div style="text-align:center;">
+            <a href="/" class="back-btn">⬅ Back to Home</a>
         </div>
-    {% endfor %}
 
-    <br>
-    <a href="/">⬅ Back to Home</a>
+    </div>
 
     <div class="footer">
         Smart WiFi IDS | Detection Complete
